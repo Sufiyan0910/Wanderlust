@@ -71,9 +71,9 @@ const sessionOptions = {
     }
 }
 
-// app.get('/', (req, res) => {
-//     res.send("Root Page Working");
-// })
+app.get('/listings', (req, res) => {
+    res.send("Root Page Working");
+})
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -90,15 +90,6 @@ app.use((req, res, next) => {
     res.locals.currUser = req.user;
     next();
 })
-
-// app.get('/demouser', async (req, res) => {
-//     let fakeUser = new User({
-//         email: 'ab@.com',
-//         username: 'demouser'
-//     })
-//     let registeredUser = await User.register(fakeUser, 'helloworld');
-//     res.send(registeredUser);
-// })
 
 app.use('/listings', listingRouter);
 app.use('/listings/:id/reviews', reviewRouter);
