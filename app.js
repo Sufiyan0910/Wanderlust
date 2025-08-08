@@ -71,9 +71,9 @@ const sessionOptions = {
     }
 }
 
-app.get('/listings', (req, res) => {
-    res.send("Root Page Working");
-})
+// app.get('/', (req, res) => {
+//     res.send("Root Page Working");
+// })
 
 app.use(session(sessionOptions));
 app.use(flash());
